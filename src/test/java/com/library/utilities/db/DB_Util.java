@@ -1,8 +1,8 @@
-package com.library.utilities.db.DB;
+package com.library.utilities.db;
 
 import java.sql.*;
 import java.util.*;
-public class Util {
+public class DB_Util {
     // declaring at class level so all methods can access
     private static Connection con ;
     private static Statement stmt;
