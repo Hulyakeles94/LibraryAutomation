@@ -1,5 +1,7 @@
 package com.library.utilities.db;
 
+import com.library.utilities.ui.ConfigurationReader;
+
 import java.sql.*;
 import java.util.*;
 public class DB_Util {
@@ -12,15 +14,14 @@ public class DB_Util {
 
     /**
      * Create Connection by jdbc url and username , password provided
-     * @param url  jdbc url for any database
-     * @param username username for database
-     * @param password password for database
      */
-    public static void createConnection(String url , String username, String password){
-
+    public static void createConnection(){
+        String dbUrl = ConfigurationReader.getProperty("connectionString");
+        String dbUsername = ConfigurationReader.getProperty("library2.db.username");
+        String dbPassword = ConfigurationReader.getProperty("library2.db.password");
 
         try {
-            con = DriverManager.getConnection(url, username, password) ;
+            con = DriverManager.getConnection(dbUrl, dbUsername, dbPassword) ;
             System.out.println("CONNECTION SUCCESSFUL");
         } catch (Exception e) {
             System.out.println("CONNECTION HAS FAILED " + e.getMessage() );
@@ -61,6 +62,7 @@ public class DB_Util {
             if( rs!=null)  rs.close();
             if( stmt !=null)  stmt.close();
             if( con!=null)  con.close();
+            System.out.println("CONNECTION CLOSED");
         } catch (Exception e) {
             System.out.println("ERROR OCCURRED WHILE CLOSING RESOURCES " + e.getMessage() );
         }

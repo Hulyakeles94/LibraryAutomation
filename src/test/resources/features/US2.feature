@@ -1,4 +1,4 @@
-@US1 @db @ui
+@US2 @db @ui
 Feature:
   As a librarian, I want to know the amount of borrowed books
   Scenario: verify the amount of borrowed books

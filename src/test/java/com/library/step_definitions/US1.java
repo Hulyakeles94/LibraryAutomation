@@ -21,10 +21,10 @@ public class US1 {
 
     @Then("verify all users has unique ID")
     public void verify_all_users_has_unique_id() {
-        List<String> UserId = DB_Util.getColumnDataAsList("ID");
-        Set<String> removeDuplicatedUserId=new LinkedHashSet<>(UserId);
+        List<String> actualIDs = DB_Util.getColumnDataAsList("ID");
+        Set<String> expectedIDs=new LinkedHashSet<>(actualIDs);
         //When we minus the size and if the result is 0, means all ID's are unique
-        Assert.assertTrue((UserId.size()-removeDuplicatedUserId.size())==0);
+        Assert.assertEquals(actualIDs,expectedIDs);
     }
 
     @When("Execute query to get all columns")
