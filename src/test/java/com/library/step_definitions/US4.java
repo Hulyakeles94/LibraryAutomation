@@ -1,6 +1,7 @@
 package com.library.step_definitions;
 
 import com.library.utilities.db.DB_Util;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -10,6 +11,8 @@ public class US4 {
             "from users u inner join book_borrow bb on u.id = bb.user_id\n" +
             "group by full_name\n" +
             "order by 2 DESC";
+
+
     @When("I execute a query to find the most popular user")
     public void i_execute_a_query_to_find_the_most_popular_user() {
         DB_Util.runQuery(query);

@@ -1,22 +1,19 @@
 package com.library.step_definitions;
 
-import com.library.runners.utilities.Driver;
 import com.library.utilities.db.DB_Util;
 import com.library.utilities.ui.ConfigurationReader;
+import com.library.utilities.ui.Driver;
 import io.cucumber.java.After;
-import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
-
 
 import java.util.concurrent.TimeUnit;
 
 public class Hooks {
-    @Before ()
+    @Before (value = "@ui")
     public void setupScenarioForLogins(){
         Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         Driver.getDriver().manage().window().maximize();
@@ -32,7 +29,7 @@ public class Hooks {
         DB_Util.destroy();
     }
 
-    @After
+    @After(value = "@ui")
     public void tearDownn(Scenario scenario){
 
         if (scenario.isFailed()){

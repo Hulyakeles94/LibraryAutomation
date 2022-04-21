@@ -1,4 +1,4 @@
-@Us5 @ui @db
+@Us6 @ui @db
 Feature: As a data consumer, I want UI and DB book categories match.
   Scenario: verify book categories with DB
     Given I login as a librarian

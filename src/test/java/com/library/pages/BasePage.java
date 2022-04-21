@@ -1,7 +1,6 @@
 package com.library.pages;
-
-import com.library.runners.utilities.BrowserUtils;
-import com.library.runners.utilities.Driver;
+import com.library.utilities.ui.BrowserUtils;
+import com.library.utilities.ui.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

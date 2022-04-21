@@ -17,10 +17,7 @@ public class US3 {
             "GROUP BY book_categories.name\n" +
             "ORDER BY countofbookcategories DESC";
 
-    @Given("Establish the database connection")
-    public void establish_the_database_connection() {
-        DB_Util.runQuery(query);
-    }
+
     @When("I execute a query to find the most popular book genre")
     public void i_execute_a_query_to_find_the_most_popular_book_genre() {
         DB_Util.runQuery(query);
