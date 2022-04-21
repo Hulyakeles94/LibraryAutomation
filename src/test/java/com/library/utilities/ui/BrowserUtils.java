@@ -474,5 +474,10 @@ for given duration
         new WebDriverWait(Driver.getDriver(), time).until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
+    public static List<String> getAllSelectOptions(WebElement element){
 
+        Select select=new Select(element);
+
+        return getElementsText(select.getOptions());
+    }
 }

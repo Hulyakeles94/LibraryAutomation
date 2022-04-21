@@ -14,10 +14,10 @@ import org.junit.runner.RunWith;
 
         },
         features = "src/test/resources/features",
-        glue = "com/cydeo/step_definitions",
+        glue = "com/library/step_definitions",
         dryRun = false,
-        tags = "Us5",
-        publish = false
+        tags = "Us6"
+//        publish = false
 
 )
 public class CukesRunner {

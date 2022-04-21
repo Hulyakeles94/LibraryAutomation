@@ -20,4 +20,7 @@ public class BooksPage {
 
     @FindBy(xpath="(//tr[@role='row'])[2]//td[6]")
     public WebElement year;
+
+    @FindBy(id = "book_categories")
+    public WebElement bookCategoryDropdown;
 }
