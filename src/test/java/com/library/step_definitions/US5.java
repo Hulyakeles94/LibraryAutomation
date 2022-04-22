@@ -10,16 +10,14 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class US5 {
     LoginPage loginPage=new LoginPage();
     BasePage basePage = new BasePage();
     BooksPage booksPage=new BooksPage();
-    String bookName;
+
 
     @Given("I login as a librarian")
     public void i_login_as_a_librarian() {
@@ -31,13 +29,12 @@ public class US5 {
         basePage.NavigateSubModule(string);
     }
     @When("I open book {string}")
-    public void i_open_book(String string) {
-        bookName=string;
-        booksPage.searchBtn.sendKeys(string+ Keys.ENTER);
+    public void i_open_book(String bookName) {
+        booksPage.searchBtn.sendKeys(bookName+ Keys.ENTER);
         BrowserUtils.waitFor(2);
     }
-    @Then("book information must match the Database")
-    public void book_information_must_match_the_database() {
+    @Then("book information must match the Database for {string}")
+    public void book_information_must_match_the_database(String bookName) {
         String query="select name,author,year from books\n" +
                 "where name='"+bookName+"'";
         DB_Util.runQuery(query);
