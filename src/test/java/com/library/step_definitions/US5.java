@@ -39,10 +39,13 @@ public class US5 {
                 "where name='"+bookName+"'";
         DB_Util.runQuery(query);
         List<String> actualInfo=new ArrayList<>();
-        List<String> expectedInfo = DB_Util.getRowDataAsList(1);
+
         actualInfo.add(booksPage.bookName.getText());
         actualInfo.add(booksPage.author.getText());
         actualInfo.add(booksPage.year.getText());
+
+        List<String> expectedInfo = DB_Util.getRowDataAsList(1);
+
         Assert.assertEquals(actualInfo,expectedInfo);
 
     }
