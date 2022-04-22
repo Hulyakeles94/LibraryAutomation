@@ -13,14 +13,14 @@ import org.openqa.selenium.WebDriver;
 import java.util.concurrent.TimeUnit;
 
 public class Hooks {
-    @Before (value = "@ui")
+    @Before ("@ui")
     public void setupScenarioForLogins(){
         Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         Driver.getDriver().manage().window().maximize();
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
     }
 
-    @Before(value = "@db")
+    @Before("@db")
     public void setupForDatabaseScenarios(){
         DB_Util.createConnection();
     }
@@ -29,7 +29,7 @@ public class Hooks {
         DB_Util.destroy();
     }
 
-    @After(value = "@ui")
+    @After("@ui")
     public void tearDownn(Scenario scenario){
 
         if (scenario.isFailed()){
