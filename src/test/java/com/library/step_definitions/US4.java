@@ -1,7 +1,6 @@
 package com.library.step_definitions;
 
 import com.library.utilities.db.DB_Util;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -19,7 +18,6 @@ public class US4 {
     }
     @Then("verify {string} is the user who reads the most")
     public void verify_is_the_user_who_reads_the_most(String string) {
-        DB_Util.runQuery(query);
         String actual = DB_Util.getCellValue(1, 1);
         Assert.assertEquals(actual,string);
     }
